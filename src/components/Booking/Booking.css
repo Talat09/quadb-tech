@@ -1,0 +1,7 @@
+.close-btn {
+  cursor: pointer;
+  border: 2px solid rgb(21, 153, 214);
+  padding: 0px 6px;
+  border-radius: 5px;
+  font-weight: 700;
+}

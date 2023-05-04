@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-
+import "./Booking.css";
 const Booking = () => {
   const { id } = useParams();
   const [show, setShow] = useState(null);
@@ -23,9 +23,9 @@ const Booking = () => {
 
   const addToDb = (event) => {
     event.preventDefault();
-    const name = event.target.elements.name.value;
+    const name = event.target.elements?.name?.value;
     const bookingDetails = {
-      showName: show.name,
+      showName: show?.name,
       userName: name,
       bookingTime: new Date(),
     };
@@ -45,14 +45,16 @@ const Booking = () => {
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title>Booking Details</Modal.Title>
-          <p onClick={handleClose}>X</p>
+          <p className="close-btn" onClick={handleClose}>
+            X
+          </p>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={addToDb}>
             <input
               type="text"
               className="w-100 text-center my-2"
-              value={show.name}
+              value={show?.name}
               readOnly
             />
             <input
